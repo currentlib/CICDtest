@@ -50,7 +50,9 @@ pipeline {
 					folderName: "${UIPATH_ORCH_FOLDER_NAME_DEV}",
 					environments: 'DEV',
 					credentials: [$class: 'UserPassAuthenticationEntry', credentialsId: '7a59289b-3fd8-4b2a-b6d0-377de8113f5d'],
-					traceLevel: "None"
+					traceLevel: "None",
+					entryPointPaths: "Main.xaml",
+                        		createProcess: true
 				)
 			}
 		}
