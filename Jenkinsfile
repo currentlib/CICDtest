@@ -31,7 +31,9 @@ pipeline {
 					traceLevel: "None",
 					orchestratorAddress: "${UIPATH_ORCH_URL}",
 					orchestratorTenant: "${UIPATH_ORCH_TENANT_NAME}",
-					credentials: Token(accountName: "${UIPATH_ORCH_LOGICAL_NAME}", credentialsId: '7a59289b-3fd8-4b2a-b6d0-377de8113f5d')
+					credentials: Token(accountName: "${UIPATH_ORCH_LOGICAL_NAME}", credentialsId: '7a59289b-3fd8-4b2a-b6d0-377de8113f5d'),
+					entryPointPaths: ['Main.xaml'],
+					createProcess: true
 				)
 			}
 		}
