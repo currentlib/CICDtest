@@ -27,7 +27,11 @@ pipeline {
 					outputPath: "Output\\${env.BUILD_NUMBER}",
 					projectJsonPath: "project.json",
 					version: [$class: 'ManualVersionEntry', version: "${MAJOR}.${MINOR}.${env.BUILD_NUMBER}"],
-					useOrchestrator: false
+					useOrchestrator: true,
+					traceLoggingLevel: "None",
+					orchestratorAddress: "${UIPATH_ORCH_URL}",
+					orchestratorTenant: "${UIPATH_ORCH_TENANT_NAME}",
+					credentials: Token(accountName: "${UIPATH_ORCH_LOGICAL_NAME}", credentialsId: '7a59289b-3fd8-4b2a-b6d0-377de8113f5d')
 				)
 			}
 		}
@@ -46,6 +50,7 @@ pipeline {
 					folderName: "${UIPATH_ORCH_FOLDER_NAME}",
 					environments: 'DEV',
 					credentials: Token(accountName: "${UIPATH_ORCH_LOGICAL_NAME}", credentialsId: '7a59289b-3fd8-4b2a-b6d0-377de8113f5d'),
+					traceLoggingLevel: 'None'
 				)
 			}
 		}
